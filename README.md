@@ -1,4 +1,5 @@
 ###modbus tcp for android
+有问题请咨询QQ:514011021
 
 >创建ModbusMaster
 	
@@ -27,7 +28,7 @@
 	BaseLocator<Number> locator = BaseLocator.holdingRegister(1, 50, DataType.EIGHT_BYTE_INT_UNSIGNED);
     master.setValue(locator, 10000000);
 
->在发生宜昌或者关闭modbus,均对modbus实例销毁
+>在发生异常或者关闭modbus,均对modbus实例销毁
 
 	master.destroy();
 	
