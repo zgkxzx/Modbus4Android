@@ -1,9 +1,12 @@
-###modbus tcp for android
+## modbus tcp for android
 
-#####这是Android版的Modbus TCP 例子，例子里面只写了对保持寄存器的读写功能，其中要注意的是对modbus的初始化、读、写等等操作都要在子线程里面进行，不然会引起网络操作在主线程的异常。
+### 介绍
+这是Android版的Modbus TCP 例子，例子里面只写了对保持寄存器的读写功能，其中要注意的是对modbus的初始化、读、写等等操作都要在子线程里面进行，不然会引起网络操作在主线程的异常。
 
-#####对于modbus 的线圈，离散寄存器，输入寄存器等等的操作，程序思路基本一致，不另作例子；对于modbus RTU/ASCII模式的通信，手机上面不带串口功能，用不了此功能，暂时没有上传。有问题请咨询QQ:514011021
+### 说明
+对于modbus 的线圈，离散寄存器，输入寄存器等等的操作，程序思路基本一致，不另作例子；对于modbus RTU/ASCII模式的通信，手机上面不带串口功能，用不了此功能，暂时没有上传。
 
+### 如何使用
 >创建ModbusMaster
 	
 	ModbusFactory factory = new ModbusFactory();
@@ -34,4 +37,12 @@
 >在发生异常或者关闭modbus,均对modbus实例销毁
 
 	master.destroy();
+	
+###反馈
+由于笔者时间有限和工程的局限性，很多问题并没有那么周全，有什么问题可直接联系
+* Email：zgkxzx@163.com
+* QQ:514011021
+
+###我&思想
+简单并非简单
 	
