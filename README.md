@@ -1,12 +1,9 @@
 ## modbus tcp for android
 
-### 介绍
-这是Android版的Modbus TCP 例子，例子里面只写了对保持寄存器的读写功能，其中要注意的是对modbus的初始化、读、写等等操作都要在子线程里面进行，不然会引起网络操作在主线程的异常。
+### Introduce
+This is a Mobus TCP for Android.If You need the examples for RTU/ASCII ,you can call me.
 
-### 说明
-对于modbus 的线圈，离散寄存器，输入寄存器等等的操作，程序思路基本一致，不另作例子；对于modbus RTU/ASCII模式的通信，手机上面不带串口功能，用不了此功能，暂时没有上传。
-
-### 如何使用
+### How to use
 >Creat ModbusMaster
 
 	ModbusFactory factory = new ModbusFactory();
@@ -39,7 +36,7 @@
                         }
                     }, 1, 1, 2);
 
-
+<img src="https://github.com/zgkxzx/Modbus4Android/blob/master/screenshot/read_coil.png" width = "1353" height = "500" alt="截屏" align=center />
 
 >Read DiscreteInput(Child Thread)
 	
@@ -55,7 +52,7 @@
                         }
                     },1,1,5);
 
-<img src="https://github.com/zgkxzx/Modbus4Android/blob/master/screenshot/read_discrete_input.png" width = "1353" height = "668" alt="截屏" align=center />
+<img src="https://github.com/zgkxzx/Modbus4Android/blob/master/screenshot/read_discrete_input.png" width = "1353" height = "500" alt="截屏" align=center />
 
 >Read HoldingRegisters(Child Thread)
 	
@@ -71,7 +68,7 @@
                         }
                     }, 1, 2, 8);
 
-<img src="https://github.com/zgkxzx/Modbus4Android/blob/master/screenshot/read_holding_register.png" width = "1353" height = "668" alt="截屏" align=center />
+<img src="https://github.com/zgkxzx/Modbus4Android/blob/master/screenshot/read_holding_register.png" width = "1353" height = "500" alt="截屏" align=center />
 
 >Read InputRegisters(Child Thread)
 	
@@ -87,7 +84,7 @@
                         }
                     }, 1, 2, 8);
 
-<img src="https://github.com/zgkxzx/Modbus4Android/blob/master/screenshot/read_input_registers.png" width = "1353" height = "668" alt="截屏" align=center />
+<img src="https://github.com/zgkxzx/Modbus4Android/blob/master/screenshot/read_input_registers.png" width = "1353" height = "500" alt="截屏" align=center />
 
 >Write Coil(Child Thread)
 	
@@ -103,7 +100,7 @@
                         }
                     },1,1,true);
 
-<img src="https://github.com/zgkxzx/Modbus4Android/blob/master/screenshot/write_coil.png" width = "1353" height = "668" alt="截屏" align=center />
+<img src="https://github.com/zgkxzx/Modbus4Android/blob/master/screenshot/write_coil.png" width = "1353" height = "500" alt="截屏" align=center />
 
 >Write Register(Child Thread)
 	
@@ -119,7 +116,7 @@
                         }
                     },1,1,234);
 
-<img src="https://github.com/zgkxzx/Modbus4Android/blob/master/screenshot/write_register.png" width = "1353" height = "668" alt="截屏" align=center />
+<img src="https://github.com/zgkxzx/Modbus4Android/blob/master/screenshot/write_register.png" width = "1353" height = "500" alt="截屏" align=center />
 
 >Write Registers(Child Thread)
 	
@@ -135,7 +132,7 @@
                         }
                     },1,2,new short[]{211,52,34});
 
-<img src="https://github.com/zgkxzx/Modbus4Android/blob/master/screenshot/write_registers.png" width = "1353" height = "668" alt="截屏" align=center />
+<img src="https://github.com/zgkxzx/Modbus4Android/blob/master/screenshot/write_registers.png" width = "1353" height = "500" alt="截屏" align=center />
 
 
 >Destroy Modbus Instance
