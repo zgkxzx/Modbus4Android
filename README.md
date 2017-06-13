@@ -1,7 +1,7 @@
 ## modbus tcp for android
 
 ### Introduce
-This is a Mobus TCP for Android.If You need the examples for RTU/ASCII ,you can call me.
+This is a Mobus TCP example for Android.If You need the examples for RTU/ASCII ,You can call me.
 
 ### How to use
 #### 1.Creat ModbusMaster
