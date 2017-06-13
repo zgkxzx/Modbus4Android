@@ -4,7 +4,7 @@
 This is a Mobus TCP for Android.If You need the examples for RTU/ASCII ,you can call me.
 
 ### How to use
->Creat ModbusMaster
+#### 1.Creat ModbusMaster
 
 	ModbusFactory factory = new ModbusFactory();
     IpParameters params = new IpParameters();
@@ -18,11 +18,11 @@ This is a Mobus TCP for Android.If You need the examples for RTU/ASCII ,you can 
     master.setTimeout(2000);
     master.setRetries(0);
 
->Init ModbusMaster
+#### 2.Init ModbusMaster
 
 	master.init();
 
->Read Coil(Child Thread)
+#### 3.Read Coil(Child Thread)
 
 	ModbusReq.readCoil(mModbusMaster, new OnRequestBack<boolean[]>() {
                         @Override
@@ -38,7 +38,7 @@ This is a Mobus TCP for Android.If You need the examples for RTU/ASCII ,you can 
 
 <img src="https://github.com/zgkxzx/Modbus4Android/blob/master/screenshot/read_coil.png" width = "1353" height = "500" alt="截屏" align=center />
 
->Read DiscreteInput(Child Thread)
+#### 4.Read DiscreteInput(Child Thread)
 	
 	ModbusReq.readDiscreteInput(mModbusMaster, new OnRequestBack<boolean[]>() {
                         @Override
@@ -54,7 +54,7 @@ This is a Mobus TCP for Android.If You need the examples for RTU/ASCII ,you can 
 
 <img src="https://github.com/zgkxzx/Modbus4Android/blob/master/screenshot/read_discrete_input.png" width = "1353" height = "500" alt="截屏" align=center />
 
->Read HoldingRegisters(Child Thread)
+#### 5.Read HoldingRegisters(Child Thread)
 	
 	ModbusReq.readHoldingRegisters(mModbusMaster, new OnRequestBack<short[]>() {
                         @Override
@@ -70,7 +70,7 @@ This is a Mobus TCP for Android.If You need the examples for RTU/ASCII ,you can 
 
 <img src="https://github.com/zgkxzx/Modbus4Android/blob/master/screenshot/read_holding_register.png" width = "1353" height = "500" alt="截屏" align=center />
 
->Read InputRegisters(Child Thread)
+#### 6.Read InputRegisters(Child Thread)
 	
 	 ModbusReq.readInputRegisters(mModbusMaster, new OnRequestBack<short[]>() {
                         @Override
@@ -86,7 +86,7 @@ This is a Mobus TCP for Android.If You need the examples for RTU/ASCII ,you can 
 
 <img src="https://github.com/zgkxzx/Modbus4Android/blob/master/screenshot/read_input_registers.png" width = "1353" height = "500" alt="截屏" align=center />
 
->Write Coil(Child Thread)
+#### 7.Write Coil(Child Thread)
 	
 	ModbusReq.writeCoil(mModbusMaster, new OnRequestBack<String>() {
                         @Override
@@ -102,7 +102,7 @@ This is a Mobus TCP for Android.If You need the examples for RTU/ASCII ,you can 
 
 <img src="https://github.com/zgkxzx/Modbus4Android/blob/master/screenshot/write_coil.png" width = "1353" height = "500" alt="截屏" align=center />
 
->Write Register(Child Thread)
+#### 8.Write Register(Child Thread)
 	
 	ModbusReq.writeRegister(mModbusMaster, new OnRequestBack<String>() {
                         @Override
@@ -118,7 +118,7 @@ This is a Mobus TCP for Android.If You need the examples for RTU/ASCII ,you can 
 
 <img src="https://github.com/zgkxzx/Modbus4Android/blob/master/screenshot/write_register.png" width = "1353" height = "500" alt="截屏" align=center />
 
->Write Registers(Child Thread)
+#### 9.Write Registers(Child Thread)
 	
 	ModbusReq.writeRegisters(mModbusMaster, new OnRequestBack<String>() {
                         @Override
@@ -134,8 +134,7 @@ This is a Mobus TCP for Android.If You need the examples for RTU/ASCII ,you can 
 
 <img src="https://github.com/zgkxzx/Modbus4Android/blob/master/screenshot/write_registers.png" width = "1353" height = "500" alt="截屏" align=center />
 
-
->Destroy Modbus Instance
+#### 10.Destroy Modbus Instance
 
 	master.destroy();
 	
