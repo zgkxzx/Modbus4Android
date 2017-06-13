@@ -33,7 +33,7 @@
 	
 	BaseLocator<Number> locator = BaseLocator.holdingRegister(1, 50, DataType.EIGHT_BYTE_INT_UNSIGNED);
     master.setValue(locator, 10000000);
-
+<img src="https://github.com/qindachang/RulerView/blob/master/imgs/Screenshot_1479577403.png" width = "320" height = "568" alt="截屏" align=center />
 >在发生异常或者关闭modbus,均对modbus实例销毁
 
 	master.destroy();
