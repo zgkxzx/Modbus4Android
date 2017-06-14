@@ -1,12 +1,12 @@
-## modbus tcp for android
+## Modbus Tcp for Android
 
 ### Introduce
-This is a Mobus TCP example for Android.If You need the examples for RTU/ASCII ,You can call me.
+This is a Modbus TCP example for Android.If You need the examples for RTU/ASCII ,You can call me.
 
 ### How to use
 #### 1.Creat ModbusMaster
 
-	ModbusFactory factory = new ModbusFactory();
+    ModbusFactory factory = new ModbusFactory();
     IpParameters params = new IpParameters();
 	//设置IP地址以及端口号
     params.setHost("192.168.0.101");
@@ -20,7 +20,7 @@ This is a Mobus TCP example for Android.If You need the examples for RTU/ASCII ,
 
 #### 2.Init ModbusMaster
 
-	master.init();
+    master.init();
 
 #### 3.Read Coil(Child Thread)
 
@@ -36,7 +36,7 @@ This is a Mobus TCP example for Android.If You need the examples for RTU/ASCII ,
                         }
                     }, 1, 1, 2);
 
-<img src="https://github.com/zgkxzx/Modbus4Android/blob/master/screenshot/read_coil.png" width = "1353" height = "500" alt="截屏" align=center />
+<img src="https://github.com/zgkxzx/Modbus4Android/blob/master/screenshot/read_coil.png" width = "1353" height = "500" alt="Read Coil" align=center />
 
 #### 4.Read DiscreteInput(Child Thread)
 	
@@ -52,7 +52,7 @@ This is a Mobus TCP example for Android.If You need the examples for RTU/ASCII ,
                         }
                     },1,1,5);
 
-<img src="https://github.com/zgkxzx/Modbus4Android/blob/master/screenshot/read_discrete_input.png" width = "1353" height = "500" alt="截屏" align=center />
+<img src="https://github.com/zgkxzx/Modbus4Android/blob/master/screenshot/read_discrete_input.png" width = "1353" height = "500" alt="Read DiscreteInput" align=center />
 
 #### 5.Read HoldingRegisters(Child Thread)
 	
@@ -68,7 +68,7 @@ This is a Mobus TCP example for Android.If You need the examples for RTU/ASCII ,
                         }
                     }, 1, 2, 8);
 
-<img src="https://github.com/zgkxzx/Modbus4Android/blob/master/screenshot/read_holding_register.png" width = "1353" height = "500" alt="截屏" align=center />
+<img src="https://github.com/zgkxzx/Modbus4Android/blob/master/screenshot/read_holding_register.png" width = "1353" height = "500" alt="Read HoldingRegisters" align=center />
 
 #### 6.Read InputRegisters(Child Thread)
 	
@@ -84,7 +84,7 @@ This is a Mobus TCP example for Android.If You need the examples for RTU/ASCII ,
                         }
                     }, 1, 2, 8);
 
-<img src="https://github.com/zgkxzx/Modbus4Android/blob/master/screenshot/read_input_registers.png" width = "1353" height = "500" alt="截屏" align=center />
+<img src="https://github.com/zgkxzx/Modbus4Android/blob/master/screenshot/read_input_registers.png" width = "1353" height = "500" alt="Read InputRegisters" align=center />
 
 #### 7.Write Coil(Child Thread)
 	
@@ -100,7 +100,7 @@ This is a Mobus TCP example for Android.If You need the examples for RTU/ASCII ,
                         }
                     },1,1,true);
 
-<img src="https://github.com/zgkxzx/Modbus4Android/blob/master/screenshot/write_coil.png" width = "1353" height = "500" alt="截屏" align=center />
+<img src="https://github.com/zgkxzx/Modbus4Android/blob/master/screenshot/write_coil.png" width = "1353" height = "500" alt="Write Coil" align=center />
 
 #### 8.Write Register(Child Thread)
 	
@@ -116,7 +116,7 @@ This is a Mobus TCP example for Android.If You need the examples for RTU/ASCII ,
                         }
                     },1,1,234);
 
-<img src="https://github.com/zgkxzx/Modbus4Android/blob/master/screenshot/write_register.png" width = "1353" height = "500" alt="截屏" align=center />
+<img src="https://github.com/zgkxzx/Modbus4Android/blob/master/screenshot/write_register.png" width = "1353" height = "500" alt="Write Register" align=center />
 
 #### 9.Write Registers(Child Thread)
 	
@@ -132,7 +132,7 @@ This is a Mobus TCP example for Android.If You need the examples for RTU/ASCII ,
                         }
                     },1,2,new short[]{211,52,34});
 
-<img src="https://github.com/zgkxzx/Modbus4Android/blob/master/screenshot/write_registers.png" width = "1353" height = "500" alt="截屏" align=center />
+<img src="https://github.com/zgkxzx/Modbus4Android/blob/master/screenshot/write_registers.png" width = "1353" height = "500" alt="Write Registers" align=center />
 
 #### 10.Destroy Modbus Instance
 
