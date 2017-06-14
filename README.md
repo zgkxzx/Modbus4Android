@@ -8,11 +8,11 @@ This is a Modbus TCP example for Android.If You need the examples for RTU/ASCII 
 
     ModbusFactory factory = new ModbusFactory();
     IpParameters params = new IpParameters();
-	//设置IP地址以及端口号
+	//Setting Ip Address and port
     params.setHost("192.168.0.101");
     params.setPort(502);
     params.setEncapsulated(false);
-	//创建ModbusMaster以及设置超时时间
+	//Creat ModbusMaster and set timeout and retry count
     ModbusMaster master = factory.createTcpMaster(params, true);
     // master.setRetries(4);
     master.setTimeout(2000);
