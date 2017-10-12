@@ -1,0 +1,57 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+//Copy类型
+task makeJar(type: Copy) {
+    //删除存在的
+    delete 'build/libs/modbus4Android.jar'
+    //设置拷贝的文件
+    from('build/intermediates/bundles/release/')
+    //打进jar包后的文件目录
+    into('build/libs/')
+    //将classes.jar放入build/libs/目录下
+    //include ,exclude参数来设置过滤
+    //（我们只关心classes.jar这个文件）
+    include('classes.jar')
+    //重命名
+    rename ('classes.jar', 'modbus4Android-'+android.defaultConfig.versionName+'.jar')
+}
+
+makeJar.dependsOn(build)
+//在终端执行生成JAR包
+// gradlew makeJar
+
+makeJar.dependsOn(build)
+//在终端执行生成JAR包
+// gradlew makeJar
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:25.2.0'
+    testCompile 'junit:junit:4.12'
+    compile files('libs/commons-lang3-3.1.jar')
+    compile files('libs/commons-logging-1.2.jar')
+}

@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Modbus4Android.iml" filepath="$PROJECT_DIR$/Modbus4Android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Modbus4AndroidDemo.iml" filepath="$PROJECT_DIR$/Modbus4AndroidDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/ModbusTest.iml" filepath="$PROJECT_DIR$/ModbusTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modbus4android/modbus4android.iml" filepath="$PROJECT_DIR$/modbus4android/modbus4android.iml" />
     </modules>
   </component>
 </project>

@@ -4,27 +4,35 @@
 This is a Mobus TCP example for Android.If You need the examples for RTU/ASCII ,You can call me.
 
 ### How to use
-#### 1.Creat ModbusMaster
+#### 1.Add the library to your project
 
-	ModbusFactory factory = new ModbusFactory();
-    IpParameters params = new IpParameters();
-	//设置IP地址以及端口号
-    params.setHost("192.168.0.101");
-    params.setPort(502);
-    params.setEncapsulated(false);
-	//创建ModbusMaster以及设置超时时间
-    ModbusMaster master = factory.createTcpMaster(params, true);
-    // master.setRetries(4);
-    master.setTimeout(2000);
-    master.setRetries(0);
+	compile files('libs/modbus4Android-1.0.jar')
+Copy the jar to the lib directory of your project and add the config to build.gradle.
+#### 2.Create and init ModbusReq instance
 
-#### 2.Init ModbusMaster
+	ModbusParam modbusParam = new ModbusParam();
+    modbusParam.setHost("192.168.0.105");
+    modbusParam.setPort(502);
+    modbusParam.setEncapsulated(false);
+    modbusParam.setKeepAlive(true);
+    modbusParam.setTimeout(2000);
+    modbusParam.setRetries(0);
+    ModbusReq.getInstance().setParam(modbusParam).init(new OnRequestBack<String>() {
+            @Override
+            public void onSuccess(String s) {
+                Log.d(TAG, "onSuccess " + s);
+            }
 
-	master.init();
+            @Override
+            public void onFailed(String msg) {
+                Log.d(TAG, "onFailed " + msg);
+            }
+    });
 
-#### 3.Read Coil(Child Thread)
+Init ModbusReq instance through setting the modbus param.
+#### 3.Read Coil
 
-	ModbusReq.readCoil(mModbusMaster, new OnRequestBack<boolean[]>() {
+	ModbusReq.getInstance().readCoil(new OnRequestBack<boolean[]>() {
                         @Override
                         public void onSuccess(boolean[] booleen) {
                             Log.d(TAG, "readCoil onSuccess " + Arrays.toString(booleen));
@@ -38,9 +46,9 @@ This is a Mobus TCP example for Android.If You need the examples for RTU/ASCII ,
 
 <img src="https://github.com/zgkxzx/Modbus4Android/blob/master/screenshot/read_coil.png" width = "1353" height = "500" alt="截屏" align=center />
 
-#### 4.Read DiscreteInput(Child Thread)
+#### 4.Read DiscreteInput
 	
-	ModbusReq.readDiscreteInput(mModbusMaster, new OnRequestBack<boolean[]>() {
+	ModbusReq.getInstance().readDiscreteInput(new OnRequestBack<boolean[]>() {
                         @Override
                         public void onSuccess(boolean[] booleen) {
                             Log.d(TAG, "readDiscreteInput onSuccess " + Arrays.toString(booleen));
@@ -54,9 +62,9 @@ This is a Mobus TCP example for Android.If You need the examples for RTU/ASCII ,
 
 <img src="https://github.com/zgkxzx/Modbus4Android/blob/master/screenshot/read_discrete_input.png" width = "1353" height = "500" alt="截屏" align=center />
 
-#### 5.Read HoldingRegisters(Child Thread)
+#### 5.Read HoldingRegisters
 	
-	ModbusReq.readHoldingRegisters(mModbusMaster, new OnRequestBack<short[]>() {
+	ModbusReq.getInstance().readHoldingRegisters(new OnRequestBack<short[]>() {
                         @Override
                         public void onSuccess(short[] data) {
                             Log.d(TAG, "readHoldingRegisters onSuccess " + Arrays.toString(data));
@@ -72,7 +80,7 @@ This is a Mobus TCP example for Android.If You need the examples for RTU/ASCII ,
 
 #### 6.Read InputRegisters(Child Thread)
 	
-	 ModbusReq.readInputRegisters(mModbusMaster, new OnRequestBack<short[]>() {
+	 ModbusReq.getInstance().readInputRegisters(new OnRequestBack<short[]>() {
                         @Override
                         public void onSuccess(short[] data) {
                             Log.d(TAG, "readInputRegisters onSuccess " + Arrays.toString(data));
@@ -86,9 +94,9 @@ This is a Mobus TCP example for Android.If You need the examples for RTU/ASCII ,
 
 <img src="https://github.com/zgkxzx/Modbus4Android/blob/master/screenshot/read_input_registers.png" width = "1353" height = "500" alt="截屏" align=center />
 
-#### 7.Write Coil(Child Thread)
+#### 7.Write Coil
 	
-	ModbusReq.writeCoil(mModbusMaster, new OnRequestBack<String>() {
+	ModbusReq.getInstance().writeCoil(new OnRequestBack<String>() {
                         @Override
                         public void onSuccess(String s) {
                             Log.e(TAG, "writeCoil onSuccess " + s);
@@ -102,9 +110,9 @@ This is a Mobus TCP example for Android.If You need the examples for RTU/ASCII ,
 
 <img src="https://github.com/zgkxzx/Modbus4Android/blob/master/screenshot/write_coil.png" width = "1353" height = "500" alt="截屏" align=center />
 
-#### 8.Write Register(Child Thread)
+#### 8.Write Register
 	
-	ModbusReq.writeRegister(mModbusMaster, new OnRequestBack<String>() {
+	ModbusReq.getInstance().writeRegister(new OnRequestBack<String>() {
                         @Override
                         public void onSuccess(String s) {
                             Log.e(TAG, "writeRegister onSuccess " + s);
@@ -118,9 +126,9 @@ This is a Mobus TCP example for Android.If You need the examples for RTU/ASCII ,
 
 <img src="https://github.com/zgkxzx/Modbus4Android/blob/master/screenshot/write_register.png" width = "1353" height = "500" alt="截屏" align=center />
 
-#### 9.Write Registers(Child Thread)
+#### 9.Write Registers
 	
-	ModbusReq.writeRegisters(mModbusMaster, new OnRequestBack<String>() {
+	ModbusReq.getInstance().writeRegisters(new OnRequestBack<String>() {
                         @Override
                         public void onSuccess(String s) {
                             Log.e(TAG, "writeRegisters onSuccess " + s);
@@ -136,7 +144,7 @@ This is a Mobus TCP example for Android.If You need the examples for RTU/ASCII ,
 
 #### 10.Destroy Modbus Instance
 
-	master.destroy();
+	ModbusReq.getInstance().destroy();
 	
 ### Feedback
 
