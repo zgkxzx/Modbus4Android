@@ -48,7 +48,7 @@ public class ModbusReq {
     private ModbusParam modbusParam = new ModbusParam();
 
     //创建一个线程数固定大小为1的线程池
-    ExecutorService executorService = Executors.newFixedThreadPool(1) ;
+    ExecutorService executorService = Executors.newFixedThreadPool(1);
 
     private boolean isInit = false;
 
@@ -105,11 +105,11 @@ public class ModbusReq {
                     Log.d(TAG, "Modbus4Android init failed " + e);
                     onRequestBack.onFailed("Modbus4Android init failed ");
                     return;
-
                 }
                 Log.d(TAG, "Modbus4Android init success");
-                onRequestBack.onSuccess("Modbus4Android init success");
                 isInit = true;
+                onRequestBack.onSuccess("Modbus4Android init success");
+
             }
         });
 
@@ -118,7 +118,7 @@ public class ModbusReq {
     /**
      * destory the modbus4Android instance
      */
-    public void destory(){
+    public void destory() {
         modbusReq = null;
         mModbusMaster.destroy();
         isInit = false;
@@ -288,7 +288,7 @@ public class ModbusReq {
      * @param offset        offset address
      * @param value         value
      */
-    public void writeCoil(final OnRequestBack<String> onRequestBack,final int slaveId,final int offset,final boolean value) {
+    public void writeCoil(final OnRequestBack<String> onRequestBack, final int slaveId, final int offset, final boolean value) {
         if (!isInit) {
             onRequestBack.onFailed("Modbus master is not inited successfully...");
             return;
@@ -324,7 +324,7 @@ public class ModbusReq {
      * @param start         start address
      * @param values        values
      */
-    public void writeCoils(final OnRequestBack<String> onRequestBack, final int slaveId, final int start,final boolean[] values) {
+    public void writeCoils(final OnRequestBack<String> onRequestBack, final int slaveId, final int start, final boolean[] values) {
         if (!isInit) {
             onRequestBack.onFailed("Modbus master is not inited successfully...");
             return;
@@ -360,7 +360,7 @@ public class ModbusReq {
      * @param offset        offset address
      * @param value         value
      */
-    public void writeRegister(final OnRequestBack<String> onRequestBack, final int slaveId,final int offset, final int value) {
+    public void writeRegister(final OnRequestBack<String> onRequestBack, final int slaveId, final int offset, final int value) {
         if (!isInit) {
             onRequestBack.onFailed("Modbus master is not inited successfully...");
             return;
