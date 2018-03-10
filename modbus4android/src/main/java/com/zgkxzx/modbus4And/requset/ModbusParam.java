@@ -9,73 +9,64 @@ import com.zgkxzx.modbus4And.base.ModbusUtils;
  */
 
 public class ModbusParam {
-    private String host;
-    private int port = ModbusUtils.TCP_PORT;
-    private boolean encapsulated;
+    public String host;
+    public int port = ModbusUtils.TCP_PORT;
+    public boolean encapsulated;
 
-    private int timeout = 500;
-    private int retries = 2;
-    private boolean keepAlive = true;
+    public int timeout = 500;
+    public int retries = 2;
+    public boolean keepAlive = true;
 
     /**
      * If connection is established with slave/slaves
      */
-    protected boolean connected = false;
+    public boolean connected = false;
 
 
-    public String getHost() {
-        return host;
-    }
-
-    public void setHost(String host) {
+    public ModbusParam setHost(String host) {
         this.host = host;
+        return this;
     }
 
-    public int getPort() {
-        return port;
-    }
 
-    public void setPort(int port) {
+
+    public ModbusParam setPort(int port) {
         this.port = port;
+        return this;
     }
 
-    public boolean isEncapsulated() {
-        return encapsulated;
-    }
 
-    public void setEncapsulated(boolean encapsulated) {
+
+    public ModbusParam setEncapsulated(boolean encapsulated) {
         this.encapsulated = encapsulated;
+        return this;
     }
 
-    public int getTimeout() {
-        return timeout;
-    }
 
-    public void setTimeout(int timeout) {
+
+    public ModbusParam setTimeout(int timeout) {
         this.timeout = timeout;
+        return this;
     }
 
-    public int getRetries() {
-        return retries;
-    }
 
-    public void setRetries(int retries) {
+
+    public ModbusParam setRetries(int retries) {
         this.retries = retries;
+        return this;
     }
 
-    public boolean isConnected() {
-        return connected;
-    }
 
-    public void setConnected(boolean connected) {
+
+    public ModbusParam setConnected(boolean connected) {
         this.connected = connected;
+        return this;
     }
 
-    public boolean isKeepAlive() {
-        return keepAlive;
-    }
 
-    public void setKeepAlive(boolean keepAlive) {
+
+    public ModbusParam setKeepAlive(boolean keepAlive) {
         this.keepAlive = keepAlive;
+        return this;
     }
 }

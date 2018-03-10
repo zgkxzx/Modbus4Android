@@ -47,7 +47,6 @@ public class ModbusReq {
     private ModbusMaster mModbusMaster;
     private ModbusParam modbusParam = new ModbusParam();
 
-    //创建一个线程数固定大小为1的线程池
     ExecutorService executorService = Executors.newFixedThreadPool(1);
 
     private boolean isInit = false;
@@ -86,13 +85,13 @@ public class ModbusReq {
         ModbusFactory mModbusFactory = new ModbusFactory();
         IpParameters params = new IpParameters();
 
-        params.setHost(modbusParam.getHost());
-        params.setPort(modbusParam.getPort());
-        params.setEncapsulated(modbusParam.isEncapsulated());
+        params.setHost(modbusParam.host);
+        params.setPort(modbusParam.port);
+        params.setEncapsulated(modbusParam.encapsulated);
 
-        mModbusMaster = mModbusFactory.createTcpMaster(params, modbusParam.isKeepAlive());
-        mModbusMaster.setRetries(modbusParam.getRetries());
-        mModbusMaster.setTimeout(modbusParam.getTimeout());
+        mModbusMaster = mModbusFactory.createTcpMaster(params, modbusParam.keepAlive);
+        mModbusMaster.setRetries(modbusParam.retries);
+        mModbusMaster.setTimeout(modbusParam.timeout);
 
         executorService.submit(new Runnable() {
             @Override

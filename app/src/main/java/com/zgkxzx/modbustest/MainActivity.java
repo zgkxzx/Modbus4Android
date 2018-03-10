@@ -28,15 +28,14 @@ public class MainActivity extends Activity {
 
     private void modbusInit() {
 
-
-        ModbusParam modbusParam = new ModbusParam();
-        modbusParam.setHost("192.168.0.105");
-        modbusParam.setPort(502);
-        modbusParam.setEncapsulated(false);
-        modbusParam.setKeepAlive(true);
-        modbusParam.setTimeout(2000);
-        modbusParam.setRetries(0);
-        ModbusReq.getInstance().setParam(modbusParam).init(new OnRequestBack<String>() {
+        ModbusReq.getInstance().setParam(new ModbusParam()
+                .setHost("192.168.0.105")
+                .setPort(502)
+                .setEncapsulated(false)
+                .setKeepAlive(true)
+                .setTimeout(2000)
+                .setRetries(0))
+                .init(new OnRequestBack<String>() {
             @Override
             public void onSuccess(String s) {
                 Log.d(TAG, "onSuccess " + s);
@@ -47,7 +46,6 @@ public class MainActivity extends Activity {
                 Log.d(TAG, "onFailed " + msg);
             }
         });
-
 
 
     }

@@ -145,13 +145,19 @@ Init ModbusReq instance through setting the modbus param.
 #### 10.Destroy Modbus Instance
 
 	ModbusReq.getInstance().destroy();
+
+### Extends
+if you use RTU Mode with SerialPort,you should do :
+
+- 1. A class to implement SerialPortWrapper interface.
+- 2. create a ModbusMaster instance with createRtuMaster mothod of ModbusFactory class.
 	
 ### Feedback
 
 You have any questions to send email to me.Thanks.
 
 * e-mail : zgkxzx@163.com
-* gmail : my.own.diy@gmail.com
+* gmail  : my.own.diy@gmail.com
 
 ### Me & Throught
 
