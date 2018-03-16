@@ -10,24 +10,24 @@ This is a Mobus TCP example for Android.If You need the examples for RTU/ASCII ,
 Copy the jar to the lib directory of your project and add the config to build.gradle.
 #### 2.Create and init ModbusReq instance
 
-	ModbusParam modbusParam = new ModbusParam();
-    modbusParam.setHost("192.168.0.105");
-    modbusParam.setPort(502);
-    modbusParam.setEncapsulated(false);
-    modbusParam.setKeepAlive(true);
-    modbusParam.setTimeout(2000);
-    modbusParam.setRetries(0);
-    ModbusReq.getInstance().setParam(modbusParam).init(new OnRequestBack<String>() {
-            @Override
-            public void onSuccess(String s) {
-                Log.d(TAG, "onSuccess " + s);
-            }
+	ModbusReq.getInstance().setParam(new ModbusParam()
+                    .setHost("192.168.0.105")
+                    .setPort(502)
+                    .setEncapsulated(false)
+                    .setKeepAlive(true)
+                    .setTimeout(2000)
+                    .setRetries(0))
+                    .init(new OnRequestBack<String>() {
+                @Override
+                public void onSuccess(String s) {
+                    Log.d(TAG, "onSuccess " + s);
+                }
 
-            @Override
-            public void onFailed(String msg) {
-                Log.d(TAG, "onFailed " + msg);
-            }
-    });
+                @Override
+                public void onFailed(String msg) {
+                    Log.d(TAG, "onFailed " + msg);
+                }
+            });
 
 Init ModbusReq instance through setting the modbus param.
 #### 3.Read Coil
