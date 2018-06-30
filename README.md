@@ -1,7 +1,7 @@
 ## Modbus For Android
 
 ### Introduce
-This is a Mobus TCP example for Android.
+This is a Modbus library for Android.
 
 ### How to use
 #### 1.Add the library to your project
@@ -149,8 +149,8 @@ Init ModbusReq instance through setting the modbus param.
 ### Extends
 if you use RTU Mode with SerialPort,you should do :
 
-- 1. A class to implement SerialPortWrapper interface.
-- 2. create a ModbusMaster instance with createRtuMaster mothod of ModbusFactory class.
+- 1. Create a class to implement SerialPortWrapper interface.
+- 2. Create a ModbusMaster instance with createRtuMaster mothod of ModbusFactory class.
 	
 ### Feedback
 
