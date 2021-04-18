@@ -119,7 +119,9 @@ public class ModbusReq {
      */
     public void destory() {
         modbusReq = null;
-        mModbusMaster.destroy();
+        if (mModbusMaster != null) {
+            mModbusMaster.destroy();
+        }
         isInit = false;
     }
 
